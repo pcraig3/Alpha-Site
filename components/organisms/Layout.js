@@ -3,6 +3,7 @@ import Head from "next/head";
 import { ActionButton } from "../atoms/ActionButton";
 import { SearchBar } from "../atoms/SearchBar";
 import { Banner } from "../atoms/Banner";
+import { Menu } from "../molecules/Menu";
 
 export const Layout = ({
   bannerText,
@@ -35,7 +36,7 @@ export const Layout = ({
               />
             </div>
 
-            <nav>Menu</nav>
+            <Menu />
           </div>
           {bannerText && bannerTitle ? (
             <section>
