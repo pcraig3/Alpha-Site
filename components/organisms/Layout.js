@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 import { ActionButton } from "../atoms/ActionButton";
 import { SearchBar } from "../atoms/SearchBar";
 import { Banner } from "../atoms/Banner";
+import { Menu } from "../molecules/Menu";
 
 /**
  * Component which defines the layout of the page for all screen sizes
@@ -23,7 +24,10 @@ export const Layout = ({ bannerText, bannerTitle, children }) => {
           <SearchBar placeholder={"Search Canada.ca"} dataCy={"search-bar"} />
         </div>
 
-        <nav className="layout-container">Menu</nav>
+        <div className="layout-container">
+          <Menu></Menu>
+        </div>
+
         {bannerText && bannerTitle ? (
           <Banner siteTitle={bannerTitle} headline={bannerText} />
         ) : null}

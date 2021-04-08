@@ -46,9 +46,8 @@ width: 810px;
     -moz-osx-font-smoothing: grayscale;
 }
 .menuButton {
-    background-color: #26374a;
-    border: 1px solid #26374a;
-    color: #fff;
+    background-color: #fff;
+    color: #444;
     margin-left: 0;
     padding: .5em 1em;
     text-transform: uppercase;
