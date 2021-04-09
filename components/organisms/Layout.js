@@ -24,9 +24,7 @@ export const Layout = ({ bannerText, bannerTitle, children }) => {
           <SearchBar placeholder={"Search Canada.ca"} dataCy={"search-bar"} />
         </div>
 
-        <div className="layout-container">
-          <Menu></Menu>
-        </div>
+        <Menu></Menu>
 
         {bannerText && bannerTitle ? (
           <Banner siteTitle={bannerTitle} headline={bannerText} />
