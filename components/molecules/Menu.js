@@ -38,7 +38,7 @@ export const Menu = () => {
               aria-haspopup="true"
               aria-controls="gc-mnu-jobs"
               aria-expanded="false"
-              className="collapsible menuItem"
+              className="collapsible topMenuItem  listItem"
               href="#"
             >
               Jobs and the workplace
@@ -47,7 +47,7 @@ export const Menu = () => {
               id="gc-mnu-jobs"
               role="menu"
               aria-orientation="vertical"
-              className="content"
+              className="content subListItem"
             >
               <li className="listItem">
                 {" "}
@@ -117,7 +117,7 @@ export const Menu = () => {
               </li>
               <li role="separator" aria-orientation="horizontal"></li>
 
-              <li className="menuItem mostRequested">
+              <li className="mostRequestedList">
                 {" "}
                 <a
                   data-keep-expanded="md-min"
@@ -126,15 +126,16 @@ export const Menu = () => {
                   aria-haspopup="true"
                   aria-controls="gc-mnu-jobs-sub"
                   aria-expanded="false"
-                  className="collapsible"
+                  className="collapsible listItem"
                 >
+                  <span className="mostRequestedArrow"></span>
                   Most requested
                 </a>
                 <ul
                   id="gc-mnu-jobs-sub"
                   role="menu"
                   aria-orientation="vertical"
-                  className="content mostRquested"
+                  className="content mostRequest"
                 >
                   <li className="listItem">
                     <a
@@ -180,7 +181,7 @@ export const Menu = () => {
               aria-haspopup="true"
               aria-controls="gc-mnu-cit"
               aria-expanded="false"
-              className="collapsible menuItem"
+              className="collapsible topMenuItem  listItem"
               href="#"
             >
               Immigration and citizenship
@@ -372,7 +373,7 @@ export const Menu = () => {
               aria-haspopup="true"
               aria-controls="gc-mnu-travel"
               aria-expanded="false"
-              className="collapsible menuItem"
+              className="collapsible topMenuItem  listItem"
               href="#"
             >
               Travel and tourism
@@ -545,7 +546,7 @@ export const Menu = () => {
               aria-haspopup="true"
               aria-controls="gc-mnu-biz"
               aria-expanded="false"
-              className="collapsible menuItem"
+              className="collapsible topMenuItem  listItem"
               href="#"
             >
               Business and industry
@@ -777,7 +778,7 @@ export const Menu = () => {
               aria-haspopup="true"
               aria-controls="gc-mnu-benny"
               aria-expanded="false"
-              className="collapsible menuItem"
+              className="collapsible topMenuItem  listItem"
               href="#"
             >
               Benefits
@@ -964,7 +965,7 @@ export const Menu = () => {
               aria-haspopup="true"
               aria-controls="gc-mnu-health"
               aria-expanded="false"
-              className="collapsible menuItem"
+              className="collapsible topMenuItem  listItem"
               href="#"
             >
               Health
@@ -1123,7 +1124,7 @@ export const Menu = () => {
               aria-haspopup="true"
               aria-controls="gc-mnu-taxes"
               aria-expanded="false"
-              className="collapsible menuItem"
+              className="collapsible topMenuItem  listItem"
               href="#"
             >
               Taxes
@@ -1290,7 +1291,7 @@ export const Menu = () => {
               aria-haspopup="true"
               aria-controls="gc-mnu-enviro"
               aria-expanded="false"
-              className="collapsible menuItem"
+              className="collapsible topMenuItem  listItem"
               href="#"
             >
               Environment and natural resources
@@ -1447,7 +1448,7 @@ export const Menu = () => {
               aria-haspopup="true"
               aria-controls="gc-mnu-defence"
               aria-expanded="false"
-              className="collapsible menuItem"
+              className="collapsible topMenuItem  listItem"
               href="#"
             >
               National security and defence
@@ -1613,7 +1614,7 @@ export const Menu = () => {
               aria-haspopup="true"
               aria-controls="gc-mnu-culture"
               aria-expanded="false"
-              className="collapsible menuItem"
+              className="collapsible topMenuItem  listItem"
               href="#"
             >
               Culture, history and sport
@@ -1791,7 +1792,7 @@ export const Menu = () => {
               aria-haspopup="true"
               aria-controls="gc-mnu-policing"
               aria-expanded="false"
-              className="collapsible menuItem"
+              className="collapsible topMenuItem  listItem"
               href="#"
             >
               Policing, justice and emergencies
@@ -1945,7 +1946,7 @@ export const Menu = () => {
               aria-haspopup="true"
               aria-controls="gc-mnu-trans"
               aria-expanded="false"
-              className="collapsible menuItem"
+              className="collapsible topMenuItem  listItem"
               href="#"
             >
               Transport and infrastructure
@@ -2100,7 +2101,7 @@ export const Menu = () => {
               aria-haspopup="true"
               aria-controls="gc-mnu-canworld"
               aria-expanded="false"
-              className="collapsible menuItem"
+              className="collapsible topMenuItem  listItem"
               href="#"
             >
               Canada and the world
@@ -2277,7 +2278,7 @@ export const Menu = () => {
               aria-haspopup="true"
               aria-controls="gc-mnu-money"
               aria-expanded="false"
-              className="collapsible menuItem"
+              className="collapsible topMenuItem  listItem"
               href="#"
             >
               Money and finances
@@ -2502,7 +2503,7 @@ export const Menu = () => {
               aria-haspopup="true"
               aria-controls="gc-mnu-science"
               aria-expanded="false"
-              className="collapsible menuItem"
+              className="collapsible topMenuItem  listItem"
               href="#"
             >
               Science and innovation
