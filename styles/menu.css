@@ -1,20 +1,25 @@
+@tailwind screens;
 li .collapsible {
     width: auto;
 }
+
 .content {
-display: none;
-overflow: hidden;
-background-color: #fff;
-border-top: #eee solid 1px;
+    display: none;
+    overflow: hidden;
+    background-color: #fff;
+    border-top: #eee solid 1px;
 }
+
 .glyphicon-chevron-down::before {
     /* content: "\e114"; */
     content: "^";
 }
+
 .expicon {
     font-size: .7em;
     margin: 0 -.35em 0 .7em;
 }
+
 .glyphicon {
     position: relative;
     top: 1px;
@@ -32,18 +37,32 @@ border-top: #eee solid 1px;
 }
 
 .menuButton {
-    margin-left: 0;
+    margin-left: 1.5rem;
     padding: .5em 1em;
     text-transform: uppercase;
     background-color: #fff;
     color: #444;
+    
 }
 
-li > .topMenuItem {
+@screen xxs {
+    .menuButton {
+        @apply mx-6;
+    }
+}
+
+@screen lg {
+    .menuButton {
+        @apply mx-0;
+    }
+}
+
+li>.topMenuItem {
     background-color: #444;
     color: #fff;
     padding-inline-start: 30px;
 }
+
 .listItem {
     display: block;
     width: 360px;
@@ -52,15 +71,16 @@ li > .topMenuItem {
     padding-right: 30px;
     padding-top: 14px;
 }
-.subListItem > li > a {
+
+.subListItem>li>a {
     padding-bottom: 14px;
     padding-left: 0;
     padding-right: 30px;
     padding-top: 14px;
     text-decoration: underline;
-
 }
-.subListItem >  li.listItem {
+
+.subListItem>li.listItem {
     border-bottom: 1px solid #ccc;
     margin-left: 65px;
     width: auto;
@@ -70,27 +90,28 @@ li > .topMenuItem {
     background-color: #e1e1e1;
     padding-left: 65px;
 }
+
 .content.mostRequest {
     background-color: #e1e1e1;
     padding-inline-start: 35px;
-    
 }
 
 .menuButton.active {
     background-color: #444;
-    color: #fff ;
+    color: #fff;
 }
-li > .topMenuItem.active {
+
+li>.topMenuItem.active {
     background-color: #fff;
-    color: #444 ;
+    color: #444;
 }
-li > .topMenuItem.active::before, .active > .mostRequestedArrow::before {
+
+li>.topMenuItem.active::before, .active>.mostRequestedArrow::before {
     content: "\25BC\a0";
 }
 
-@media screen and (min-width: 991px){
-.menuButton:hover {
-    text-decoration: underline;
-}
-
+@media screen and (min-width: 991px) {
+    .menuButton:hover {
+        text-decoration: underline;
+    }
 }

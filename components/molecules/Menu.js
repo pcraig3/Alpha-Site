@@ -19,12 +19,12 @@ export const Menu = () => {
     }
   });
   return (
-    <nav>
+    <nav className="lg:container xxs:mx-0 xxs:px-0 lg:mx-auto lg:px-6 xxl:mx-auto">
       <button id="button" className="collapsible menuButton">
         Menu <span className="expicon glyphicon glyphicon-chevron-down"></span>
       </button>
 
-      <div className="container content">
+      <div className="content">
         <ul
           role="menu"
           aria-orientation="vertical"
