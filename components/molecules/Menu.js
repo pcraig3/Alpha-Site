@@ -25,41 +25,24 @@ export const Menu = () => {
       </button>
 
       <div className="content">
-        <ul
-          role="menu"
-          aria-orientation="vertical"
-          data-ajax-replace="/content/dam/canada/sitemenu/sitemenu-v2-en.html"
-          className="wb-init wb-data-ajax-replace-inited"
-          id="wb-auto-3"
-        >
+        <ul className="border-solid border-2 border-gray-700" id="wb-auto-3">
           <li>
             <a
               tabIndex="0"
-              aria-haspopup="true"
-              aria-controls="gc-mnu-jobs"
-              aria-expanded="false"
               className="collapsible topMenuItem  listItem"
               href="#"
             >
               Jobs and the workplace
             </a>
-            <ul
-              id="gc-mnu-jobs"
-              role="menu"
-              aria-orientation="vertical"
-              className="content subListItem"
-            >
+            <ul className="content subListItem">
               <li className="listItem">
-                {" "}
                 <a
                   tabIndex="0"
                   href="https://www.canada.ca/en/services/jobs.html"
                 >
                   Jobs
-                  <span className="visible-xs-inline visible-sm-inline">
-                    : home
-                  </span>
-                </a>{" "}
+                  <span>: home</span>
+                </a>
               </li>
               <li role="separator"></li>
               <li className="listItem">
@@ -118,25 +101,11 @@ export const Menu = () => {
               <li role="separator" aria-orientation="horizontal"></li>
 
               <li className="mostRequestedList">
-                {" "}
-                <a
-                  data-keep-expanded="md-min"
-                  href="#"
-                  tabIndex="-1"
-                  aria-haspopup="true"
-                  aria-controls="gc-mnu-jobs-sub"
-                  aria-expanded="false"
-                  className="collapsible listItem"
-                >
+                <a href="#" tabIndex="-1" className="collapsible listItem">
                   <span className="mostRequestedArrow"></span>
                   Most requested
                 </a>
-                <ul
-                  id="gc-mnu-jobs-sub"
-                  role="menu"
-                  aria-orientation="vertical"
-                  className="content mostRequest"
-                >
+                <ul className="content mostRequest">
                   <li className="listItem">
                     <a
                       tabIndex="0"
