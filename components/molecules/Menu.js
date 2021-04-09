@@ -21,7 +21,7 @@ export const Menu = () => {
   return (
     <nav className="lg:container xxs:mx-0 xxs:px-0 lg:mx-auto lg:px-6 xxl:mx-auto">
       <button id="button" className="collapsible menuButton">
-        Menu <span className="expicon glyphicon glyphicon-chevron-down"></span>
+        <span className="mr-2">Menu</span> <span className="menuArrow"></span>
       </button>
 
       <div className="content">
