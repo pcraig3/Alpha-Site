@@ -21,7 +21,7 @@ export const Menu = () => {
   return (
     <nav>
       <button id="button" className="collapsible menuButton">
-        Menu <span className="expicon glyphicon glyphicon-chevron-down"></span>
+        <span className="mr-2">Menu</span> <span className="menuArrow"></span>
       </button>
 
       <div className="container content">

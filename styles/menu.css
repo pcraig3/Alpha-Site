@@ -7,24 +7,15 @@ overflow: hidden;
 background-color: #fff;
 border-top: #eee solid 1px;
 }
-.glyphicon-chevron-down::before {
-    /* content: "\e114"; */
-    content: "^";
-}
-.expicon {
-    font-size: .7em;
-    margin: 0 -.35em 0 .7em;
-}
-.glyphicon {
-    position: relative;
-    top: 1px;
+
+.menuArrow {
+    border: solid black;
+    border-width: 0 3px 3px 0;
     display: inline-block;
-    font-family: "Glyphicons Halflings";
-    font-style: normal;
-    font-weight: 400;
-    line-height: 1;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    padding: 3px;
+    transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  margin-bottom: 2px;
 }
 
 .topMenuItem::before, .mostRequestedArrow::before {
@@ -80,6 +71,10 @@ li > .topMenuItem {
     background-color: #444;
     color: #fff ;
 }
+.menuButton.active > .menuArrow {
+    border: solid white;
+    border-width: 0 3px 3px 0;
+}
 li > .topMenuItem.active {
     background-color: #fff;
     color: #444 ;
@@ -89,8 +84,6 @@ li > .topMenuItem.active::before, .active > .mostRequestedArrow::before {
 }
 
 @media screen and (min-width: 991px){
-.menuButton:hover {
-    text-decoration: underline;
-}
 
+/* ...Do bigger screnn stuff */
 }
