@@ -33,17 +33,7 @@ li .collapsible {
     
 }
 
-@screen xxs {
-    .menuButton {
-        @apply mx-6;
-    }
-}
 
-@screen lg {
-    .menuButton {
-        @apply mx-0;
-    }
-}
 
 li>.topMenuItem {
     background-color: #444;
@@ -74,17 +64,6 @@ li>.topMenuItem {
     width: auto;
 }
 
-@screen xl {
-    .topMenuItem {
-        @apply hover:bg-white hover:text-gray-dark;
-    }
-
-    #menuList {
-        position: absolute;
-        z-index: 5;
-    }
-}
-
 .mostRequestedList {
     background-color: #e1e1e1;
     padding-left: 65px;
@@ -109,4 +88,48 @@ li > .topMenuItem.active {
 }
 li > .topMenuItem.active::before, .active > .mostRequestedArrow::before {
     content: "\25BC\a0";
+}
+
+@screen xxs {
+    .menuButton {
+        @apply mx-6;
+    }
+}
+
+@screen lg {
+    .menuButton {
+        @apply mx-0;
+    }
+}
+
+@screen xl {
+    .topMenuItem {
+        @apply hover:bg-white hover:text-gray-dark;
+    }
+
+    #menuList {
+        position: absolute;
+        z-index: 5;
+    }
+    .menuButton{
+        @apply hover:bg-gray-dark hover:text-white;
+    }
+    .menuButton:hover > .menuArrow {
+        border: solid white;
+        border-width: 0 3px 3px 0;
+    }
+    .subListItem {
+        position:absolute;
+        background-color: #fff;
+        border-top: #eee solid 1px;
+        -webkit-box-shadow: 10px 10px 10px 5px rgb(0 0 0 / 10%);
+        box-shadow: 10px 10px 10px 5px rgb(0 0 0 / 10%);
+        color: #000;
+        left: 330px;
+        margin-bottom: 25px;
+        min-height: 815px;
+        padding: 0 39px 24px;
+        top: 0;
+        width: 810px;
+    }
 }
