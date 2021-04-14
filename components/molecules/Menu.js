@@ -65,7 +65,7 @@ export const Menu = () => {
                     href="https://www.canada.ca/en/services/jobs.html"
                   >
                     Jobs
-                    <span>: home</span>
+                    <span className="hideDesktop">: home</span>
                   </a>
                 </li>
                 <li role="separator"></li>
@@ -188,9 +188,7 @@ export const Menu = () => {
                       {" "}
                       and citizenship
                     </span>
-                    <span className="visible-xs-inline visible-sm-inline">
-                      : home
-                    </span>
+                    <span className="hideDesktop">: home</span>
                   </a>
                 </li>
                 <li role="separator"></li>
@@ -356,9 +354,7 @@ export const Menu = () => {
                   <a tabIndex="-1" href="https://travel.gc.ca/">
                     Travel
                     <span className="hidden-xs hidden-sm"> and tourism</span>
-                    <span className="visible-xs-inline visible-sm-inline">
-                      : home
-                    </span>
+                    <span className="hideDesktop">: home</span>
                   </a>
                 </li>
                 <li role="separator"></li>
@@ -511,9 +507,7 @@ export const Menu = () => {
                   >
                     Business
                     <span className="hidden-xs hidden-sm"> and industry</span>
-                    <span className="visible-xs-inline visible-sm-inline">
-                      : home
-                    </span>
+                    <span className="hideDesktop">: home</span>
                   </a>
                 </li>
                 <li role="separator"></li>
@@ -721,9 +715,7 @@ export const Menu = () => {
                     href="https://www.canada.ca/en/services/benefits.html"
                   >
                     Benefits
-                    <span className="visible-xs-inline visible-sm-inline">
-                      : home
-                    </span>
+                    <span className="hideDesktop">: home</span>
                   </a>
                 </li>
                 <li role="separator"></li>
@@ -887,9 +879,7 @@ export const Menu = () => {
                     href="https://www.canada.ca/en/services/health.html"
                   >
                     Health
-                    <span className="visible-xs-inline visible-sm-inline">
-                      : home
-                    </span>
+                    <span className="hideDesktop">: home</span>
                   </a>
                 </li>
                 <li role="separator"></li>
@@ -1025,9 +1015,7 @@ export const Menu = () => {
                     href="https://www.canada.ca/en/services/taxes.html"
                   >
                     Taxes
-                    <span className="visible-xs-inline visible-sm-inline">
-                      : home
-                    </span>
+                    <span className="hideDesktop">: home</span>
                   </a>
                 </li>
                 <li role="separator"></li>
@@ -1174,9 +1162,7 @@ export const Menu = () => {
                     <span className="hidden-xs hidden-sm">
                       and natural resources
                     </span>
-                    <span className="visible-xs-inline visible-sm-inline">
-                      : home
-                    </span>
+                    <span className="hideDesktop">: home</span>
                   </a>
                 </li>
                 <li role="separator"></li>
@@ -1311,9 +1297,7 @@ export const Menu = () => {
                     <span className="hidden-xs hidden-sm">
                       National security and defence
                     </span>
-                    <span className="visible-xs-inline visible-sm-inline">
-                      Defence: home
-                    </span>
+                    <span className="hideDesktop">Defence: home</span>
                   </a>
                 </li>
                 <li role="separator"></li>
@@ -1457,9 +1441,7 @@ export const Menu = () => {
                     <span className="hidden-xs hidden-sm">
                       , history and sport
                     </span>
-                    <span className="visible-xs-inline visible-sm-inline">
-                      : home
-                    </span>
+                    <span className="hideDesktop">: home</span>
                   </a>
                 </li>
                 <li role="separator"></li>
@@ -1614,9 +1596,7 @@ export const Menu = () => {
                     <span className="hidden-xs hidden-sm">
                       , justice and emergencies
                     </span>
-                    <span className="visible-xs-inline visible-sm-inline">
-                      : home
-                    </span>
+                    <span className="hideDesktop">: home</span>
                   </a>
                 </li>
                 <li role="separator"></li>
@@ -1747,9 +1727,7 @@ export const Menu = () => {
                     <span className="hidden-xs hidden-sm">
                       and infrastructure
                     </span>
-                    <span className="visible-xs-inline visible-sm-inline">
-                      : home
-                    </span>
+                    <span className="hideDesktop">: home</span>
                   </a>
                 </li>
                 <li role="separator"></li>
@@ -1877,9 +1855,7 @@ export const Menu = () => {
                     href="http://international.gc.ca/world-monde/index.aspx?lang=eng"
                   >
                     Canada and the world
-                    <span className="visible-xs-inline visible-sm-inline">
-                      : home
-                    </span>
+                    <span className="hideDesktop">: home</span>
                   </a>
                 </li>
                 <li role="separator"></li>
@@ -2035,9 +2011,7 @@ export const Menu = () => {
                     <span className="hidden-xs hidden-sm">
                       Money and finances
                     </span>
-                    <span className="visible-xs-inline visible-sm-inline">
-                      Finance: home
-                    </span>
+                    <span className="hideDesktop">Finance: home</span>
                   </a>
                 </li>
                 <li role="separator"></li>
@@ -2238,9 +2212,7 @@ export const Menu = () => {
                   >
                     Science
                     <span className="hidden-xs hidden-sm"> and innovation</span>
-                    <span className="visible-xs-inline visible-sm-inline">
-                      : home
-                    </span>
+                    <span className="hideDesktop">: home</span>
                   </a>
                 </li>
                 <li role="separator"></li>
