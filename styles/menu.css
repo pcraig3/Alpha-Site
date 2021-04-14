@@ -79,13 +79,9 @@ li>.topMenuItem {
         @apply hover:bg-white hover:text-gray-dark;
     }
 
-    #menuContent{
-        position: relative;
-        display: block;
-    }
-
     #menuList {
-        z-index: 9999;
+        position: absolute;
+        z-index: 5;
     }
 }
 
