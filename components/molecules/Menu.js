@@ -19,6 +19,27 @@ export const Menu = () => {
     }
   });
 
+  useEffect(() => {
+    let coll = document.getElementsByClassName("topMenuItem");
+    let i;
+
+    for (i = 0; i < coll.length; i++) {
+      coll[i].addEventListener("mouseover", function () {
+        this.classList.add("active");
+        let content = this.nextElementSibling;
+        content.style.display = "block";
+      });
+    }
+
+    for (i = 0; i < coll.length; i++) {
+      coll[i].addEventListener("mouseleave", function () {
+        this.classList.remove("active");
+        let content = this.nextElementSibling;
+        content.style.display = "none";
+      });
+    }
+  });
+
   return (
     <nav>
       <div className="lg:container xxs:mx-0 xxs:px-0 lg:px-6 lg:mx-auto collapsible">
