@@ -132,4 +132,34 @@ li > .topMenuItem.active::before, .active > .mostRequestedArrow::before {
         top: 0;
         width: 810px;
     }
+    .subListItem > li:first-of-type {
+        font-size: 32px;
+        font-weight: 600;
+    }
+    .subListItem > li.listItem{
+        @apply underline mx-0;
+        color: #284162;
+        padding: 6px 0;
+        text-decoration: underline;
+
+    }
+    .hideDesktop, .mostRequestedArrow{
+        @apply hidden;
+    }
+    .mostRequest > li{
+        @apply list-disc;
+        list-style-type: disc !important;
+    }
+    .mostRequestedList {
+        @apply bg-white px-0;
+    }
+    .mostRequestedList > a:first-of-type {
+        @apply font-bold text-black no-underline;
+        font-size: 20px;
+        font-weight: 600;
+    }
+    .content.mostRequest {
+        @apply bg-white px-0;
+        list-style-type: disc !important;
+    }
 }
