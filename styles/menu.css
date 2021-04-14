@@ -74,6 +74,21 @@ li>.topMenuItem {
     width: auto;
 }
 
+@screen xl {
+    .topMenuItem {
+        @apply hover:bg-white hover:text-gray-dark;
+    }
+
+    #menuContent{
+        position: relative;
+        display: block;
+    }
+
+    #menuList {
+        z-index: 9999;
+    }
+}
+
 .mostRequestedList {
     background-color: #e1e1e1;
     padding-left: 65px;
