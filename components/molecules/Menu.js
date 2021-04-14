@@ -5,7 +5,6 @@ export const Menu = () => {
     console.log("here");
     let coll = document.getElementsByClassName("collapsible");
     let i;
-    let menuList = document.getElementById("menuList");
 
     for (i = 0; i < coll.length; i++) {
       coll[i].addEventListener("click", function () {
