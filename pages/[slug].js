@@ -33,7 +33,7 @@ export default function DynamicPage(props) {
       locale={props.locale}
       langUrl={getLocaleString(
         locale,
-        pageData.PagePath_FR,
+        pageData.PagePath_EN,
         pageData.PagePath_FR
       )}
     >
