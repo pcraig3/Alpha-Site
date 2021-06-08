@@ -11,19 +11,36 @@ import { useRouter } from "next/router";
 export default function DynamicPage(props) {
   const { t } = useTranslation("common");
 
+  const locale = props.locale;
+  const pageData = props.pageData;
+
+  const getLocaleString = (locale, frenchString, engString) => {
+    return locale === "fr" ? frenchString : engString;
+  };
+
   return (
     <Layout
-      bannerTitle={t("bannerTitle")}
-      bannerText={t("bannerText")}
+      bannerTitle={getLocaleString(
+        locale,
+        pageData.BannerTitle_FR,
+        pageData.BannerTitle_EN
+      )}
+      bannerText={getLocaleString(
+        locale,
+        pageData.BannerText_FR,
+        pageData.BannerText_EN
+      )}
       locale={props.locale}
-      langUrl={
-        props.locale === "fr"
-          ? props.pageData.PagePath_EN
-          : props.pageData.PagePath_FR
-      }
+      langUrl={getLocaleString(
+        locale,
+        pageData.PagePath_FR,
+        pageData.PagePath_FR
+      )}
     >
       <Head>
-        <title>{t("siteTitle")}</title>
+        <title>
+          {getLocaleString(locale, pageData.Title_FR, pageData.Title_EN)}
+        </title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
