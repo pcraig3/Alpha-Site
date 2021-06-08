@@ -53,14 +53,9 @@ export default function DynamicPage(props) {
             dataCyButton="ExperimentsButton"
           >
             <h1>{t("experimentsAndExplorationTitle")}</h1>
-            <br></br>
-            <p>
-              {t("experimentsAndExploration-1/3")} <br></br> <br></br>
-              {t("experimentsAndExploration-2/3")}
-              <br></br>
-              <br></br> {t("experimentsAndExploration-3/3")}
-            </p>
-            <br></br>
+            <p>{t("experimentsAndExploration-1/3")}</p>
+            <p>{t("experimentsAndExploration-2/3")}</p>
+            <p>{t("experimentsAndExploration-3/3")}</p>
           </TextButtonField>
           <div className="lg:pt-32">
             <Quote text={t("experimentsComment")} author="Kim Lee Kho" />
@@ -68,7 +63,7 @@ export default function DynamicPage(props) {
         </div>
       </section>
 
-      <section className="bg-footer-background-color">
+      <section className="bg-footer-background-color  ">
         <div className="flex flex-col-reverse pt-8  layout-container   xl:grid xl:grid-cols-2 xl:gap-8">
           <List
             items={[
@@ -79,18 +74,16 @@ export default function DynamicPage(props) {
             ]}
           />
           <div>
-            <h2 className="text-h1">{t("aboutTitle")}</h2>
-            <br></br>
-            <p className="text-sm md:text-p  leading-normal text-left font-body  font-normal">
+            <h2 className="text-h1 mb-4">{t("aboutTitle")}</h2>
+            <p className="text-sm md:text-p leading-normal text-left font-body font-normal py-4">
               {t("AboutThisSite1/3")}
-              <br></br>
-              <br></br>
-              {t("AboutThisSite2/3")}
-              <br></br>
-              <br></br>
+            </p>
+            <p className="text-sm md:text-p leading-normal text-left font-body font-normal py-4">
               {t("AboutThisSite2/3")}
             </p>
-            <br></br>
+            <p className="text-sm md:text-p leading-normal text-left font-body font-normal py-4">
+              {t("AboutThisSite3/3")}
+            </p>
             <div className="invisible xl:visible">
               <ActionButton
                 id="LearnMoreButton"
