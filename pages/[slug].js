@@ -24,7 +24,11 @@ export default function DynamicPage(props) {
 
   const createListItems = (locale, itemObjects) => {
     let listItems = itemObjects.map((itemObject) => {
-      getLocaleString(locale, itemObject.ItemName_FR, itemObject.ItemName_EN);
+      return getLocaleString(
+        locale,
+        itemObject.ItemName_FR,
+        itemObject.ItemName_EN
+      );
     });
     return listItems;
   };
@@ -66,7 +70,7 @@ export default function DynamicPage(props) {
               </div>
             </section>
           );
-          i + 2;
+          i = i + 2;
         }
       } else if (componentObjects[i].size === "two-thirds") {
         if (componentObjects[i + 1].size !== "third") {
@@ -93,7 +97,7 @@ export default function DynamicPage(props) {
               </div>
             </section>
           );
-          i + 2;
+          i = i + 2;
         }
       } else if (componentObjects[i].size === "half") {
         if (componentObjects[i + 1].size !== "half") {
@@ -120,7 +124,7 @@ export default function DynamicPage(props) {
               </div>
             </section>
           );
-          i + 2;
+          i = i + 2;
         }
       } else if (componentObjects[i].size === "third") {
         if (componentObjects[i + 1].size !== "third") {
@@ -150,7 +154,7 @@ export default function DynamicPage(props) {
               </div>
             </section>
           );
-          i + 2;
+          i = i + 2;
         } else {
           sections.push(
             <section className="layout-container">
@@ -167,7 +171,7 @@ export default function DynamicPage(props) {
               </div>
             </section>
           );
-          i + 3;
+          i = i + 3;
         }
       } else if (componentObjects[i].size === "quarter") {
         if (componentObjects[i + 1].size !== "quarter") {
@@ -197,7 +201,7 @@ export default function DynamicPage(props) {
               </div>
             </section>
           );
-          i + 2;
+          i = i + 2;
         } else if (
           componentObjects[i + 1].size === "quarter" &&
           componentObjects[i + 3].size !== "quarter"
@@ -217,7 +221,7 @@ export default function DynamicPage(props) {
               </div>
             </section>
           );
-          i + 3;
+          i = i + 3;
         } else {
           sections.push(
             <section className="layout-container">
@@ -238,10 +242,11 @@ export default function DynamicPage(props) {
               </div>
             </section>
           );
-          i + 4;
+          i = i + 4;
         }
       }
     }
+    return sections;
   };
 
   const setupComponents = (locale, componentsData) => {
@@ -351,70 +356,6 @@ export default function DynamicPage(props) {
       </Head>
 
       {setupComponents(locale, pageData.Components)}
-
-      <section className="layout-container mb-2 mt-12">
-        <div className="flex flex-col lg:grid lg:grid-cols-2 lg:gap-24">
-          <TextButtonField
-            href="/experiments"
-            buttonText={t("experimentsBtnTxt")}
-            idButton="ExperimentsButton"
-            dataCyButton="ExperimentsButton"
-          >
-            <h1>{t("experimentsAndExplorationTitle")}</h1>
-            <p>{t("experimentsAndExploration-1/3")}</p>
-            <p>{t("experimentsAndExploration-2/3")}</p>
-            <p>{t("experimentsAndExploration-3/3")}</p>
-          </TextButtonField>
-          <div className="lg:pt-32">
-            <Quote text={t("experimentsComment")} author="Kim Lee Kho" />
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-footer-background-color  ">
-        <div className="flex flex-col-reverse pt-8  layout-container   xl:grid xl:grid-cols-2 xl:gap-8">
-          <List
-            items={[
-              t("circleTxt1/4"),
-              t("circleTxt2/4"),
-              t("circleTxt3/4"),
-              t("circleTxt4/4"),
-            ]}
-          />
-          <div>
-            <h2 className="text-h1 mb-4">{t("aboutTitle")}</h2>
-            <p className="text-sm md:text-p leading-normal text-left font-body font-normal py-4">
-              {t("AboutThisSite1/3")}
-            </p>
-            <p className="text-sm md:text-p leading-normal text-left font-body font-normal py-4">
-              {t("AboutThisSite2/3")}
-            </p>
-            <p className="text-sm md:text-p leading-normal text-left font-body font-normal py-4">
-              {t("AboutThisSite3/3")}
-            </p>
-            <div className="invisible xl:visible">
-              <ActionButton
-                id="LearnMoreButton"
-                text={t("learnMoreBtn")}
-                className={"text-xs md:text-base"}
-                secondary
-                dataCyButton={"learn-more"}
-              />
-            </div>
-          </div>
-        </div>
-        <div className="xl:bg-footer-background-color  bg-white ">
-          <div className="xl:invisible layout-container pt-6 xl:pt-0 xl:pb-0 pb-10 ">
-            <ActionButton
-              id="LearnMoreButtonSmScreen"
-              text={t("learnMoreBtn")}
-              className={"text-xs md:text-base"}
-              secondary
-              dataCyButton={"learn-more"}
-            />
-          </div>
-        </div>
-      </section>
     </Layout>
   );
 }
