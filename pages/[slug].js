@@ -1,27 +1,39 @@
 import Head from "next/head";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { useTranslation } from "next-i18next";
 import { Layout } from "../components/organisms/Layout";
-import { ActionButton } from "../components/atoms/ActionButton";
 import { TextButtonField } from "../components/molecules/TextButtonField";
 import { Quote } from "../components/molecules/Quote";
 import { List } from "../components/molecules/List";
-import { useRouter } from "next/router";
 
 export default function DynamicPage(props) {
-  const { t } = useTranslation("common");
-
   const locale = props.locale;
   const pageData = props.pageData;
 
+  // Function for returning a string based on locale
   const getLocaleString = (locale, frenchString, engString) => {
     return locale === "fr" ? frenchString : engString;
   };
 
+  // Function that checks for specific component types and returns
+  // that component and container with appropriate CSS
+  const format = (component, columnSpan) => {
+    return component.hydratedComponent.type.name === "Quote" ? (
+      <div className={`lg:col-span-${columnSpan} lg:pt-32`}>
+        {component.hydratedComponent}
+      </div>
+    ) : (
+      <div className={`lg:col-span-${columnSpan}`}>
+        {component.hydratedComponent}
+      </div>
+    );
+  };
+
+  // Function used to create button ids and data-cy ids
   const createButtonIdString = (string) => {
     return `${string.replace(/\s/g, "")}-button`;
   };
 
+  // Function used to create an array of strings to be used in a List component
   const createListItems = (locale, itemObjects) => {
     let listItems = itemObjects.map((itemObject) => {
       return getLocaleString(
@@ -33,22 +45,28 @@ export default function DynamicPage(props) {
     return listItems;
   };
 
+  // Function that creates html sections based on each component's size and type.
+  // Makes assumptions by checking the next component in the index and checking to see if it is a matching size
+  // and if so, continues through the array to check for more of the same size unti a "full" section is created.
+  // If the component following the current index is not the same size, create it's own section.
   const createSections = (componentObjects) => {
     let i = 0;
     let sections = [];
     while (i < componentObjects.length) {
+      // If component is a full section, give it it's own section
       if (componentObjects[i].size === "full") {
         sections.push(
-          <section className="layout-container mb-2 mt-12">
+          <section className="layout-container mt-12 mb-2">
             {componentObjects[i].hydratedComponent}
           </section>
         );
         i++;
+        // If component is "three-quarters" size
       } else if (componentObjects[i].size === "three-quarters") {
-        // Check if next component creates a full section and if not, place current component in its own section
+        // First check if the next component is a quarter (to make a full section) and if not, give this component it's own section
         if (componentObjects[i + 1].size !== "quarter") {
           sections.push(
-            <section className="layout-container">
+            <section className="layout-container mt-12 mb-2">
               <div className="flex flex-col lg:grid lg:grid-cols-12 lg:gap-24">
                 <div className="lg:col-span-9">
                   {componentObjects[i].hydratedComponent}
@@ -57,9 +75,11 @@ export default function DynamicPage(props) {
             </section>
           );
           i++;
+          // If the component next in the index creates a full section, combine it with the current index component
+          // into one section
         } else {
           sections.push(
-            <section className="layout-container">
+            <section className="layout-container mt-12 mb-2">
               <div className="flex flex-col lg:grid lg:grid-cols-12 lg:gap-24">
                 <div className="lg:col-span-9">
                   {componentObjects[i].hydratedComponent}
@@ -75,7 +95,7 @@ export default function DynamicPage(props) {
       } else if (componentObjects[i].size === "two-thirds") {
         if (componentObjects[i + 1].size !== "third") {
           sections.push(
-            <section className="layout-container">
+            <section className="layout-container mt-12 mb-2">
               <div className="flex flex-col lg:grid lg:grid-cols-12 lg:gap-24">
                 <div className="lg:col-span-8">
                   {componentObjects[i].hydratedComponent}
@@ -86,7 +106,7 @@ export default function DynamicPage(props) {
           i++;
         } else {
           sections.push(
-            <section className="layout-container">
+            <section className="layout-container mt-12 mb-2">
               <div className="flex flex-col lg:grid lg:grid-cols-12 lg:gap-24">
                 <div className="lg:col-span-8">
                   {componentObjects[i].hydratedComponent}
@@ -102,25 +122,19 @@ export default function DynamicPage(props) {
       } else if (componentObjects[i].size === "half") {
         if (componentObjects[i + 1].size !== "half") {
           sections.push(
-            <section className="layout-container">
-              <div className="flex flex-col lg:grid lg:grid-cols-12 lg:gap-24">
-                <div className="lg:col-span-6">
-                  {componentObjects[i].hydratedComponent}
-                </div>
+            <section className="layout-container mt-12 mb-2">
+              <div className="flex flex-col lg:grid lg:grid-cols-2 lg:gap-24">
+                {format(componentObjects[i], 1)}
               </div>
             </section>
           );
           i++;
         } else {
           sections.push(
-            <section className="layout-container">
-              <div className="flex flex-col lg:grid lg:grid-cols-12 lg:gap-24">
-                <div className="lg:col-span-6">
-                  {componentObjects[i].hydratedComponent}
-                </div>
-                <div className="lg:col-span-6">
-                  {componentObjects[i + 1].hydratedComponent}
-                </div>
+            <section className="layout-container mt-12 mb-2">
+              <div className="flex flex-col lg:grid lg:grid-cols-2 lg:gap-24">
+                {format(componentObjects[i], 1)}
+                {format(componentObjects[i + 1], 1)}
               </div>
             </section>
           );
@@ -129,7 +143,7 @@ export default function DynamicPage(props) {
       } else if (componentObjects[i].size === "third") {
         if (componentObjects[i + 1].size !== "third") {
           sections.push(
-            <section className="layout-container">
+            <section className="layout-container mt-12 mb-2">
               <div className="flex flex-col lg:grid lg:grid-cols-12 lg:gap-24">
                 <div className="lg:col-span-4">
                   {componentObjects[i].hydratedComponent}
@@ -143,7 +157,7 @@ export default function DynamicPage(props) {
           componentObjects[i + 2].size !== "third"
         ) {
           sections.push(
-            <section className="layout-container">
+            <section className="layout-container mt-12 mb-2">
               <div className="flex flex-col lg:grid lg:grid-cols-12 lg:gap-24">
                 <div className="lg:col-span-4">
                   {componentObjects[i].hydratedComponent}
@@ -157,7 +171,7 @@ export default function DynamicPage(props) {
           i = i + 2;
         } else {
           sections.push(
-            <section className="layout-container">
+            <section className="layout-container mt-12 mb-2">
               <div className="flex flex-col lg:grid lg:grid-cols-12 lg:gap-24">
                 <div className="lg:col-span-4">
                   {componentObjects[i].hydratedComponent}
@@ -176,7 +190,7 @@ export default function DynamicPage(props) {
       } else if (componentObjects[i].size === "quarter") {
         if (componentObjects[i + 1].size !== "quarter") {
           sections.push(
-            <section className="layout-container">
+            <section className="layout-container mt-12 mb-2">
               <div className="flex flex-col lg:grid lg:grid-cols-12 lg:gap-24">
                 <div className="lg:col-span-3">
                   {componentObjects[i].hydratedComponent}
@@ -190,7 +204,7 @@ export default function DynamicPage(props) {
           componentObjects[i + 2].size !== "quarter"
         ) {
           sections.push(
-            <section className="layout-container">
+            <section className="layout-container mt-12 mb-2">
               <div className="flex flex-col lg:grid lg:grid-cols-12 lg:gap-24">
                 <div className="lg:col-span-3">
                   {componentObjects[i].hydratedComponent}
@@ -207,7 +221,7 @@ export default function DynamicPage(props) {
           componentObjects[i + 3].size !== "quarter"
         ) {
           sections.push(
-            <section className="layout-container">
+            <section className="layout-container mt-12 mb-2">
               <div className="flex flex-col lg:grid lg:grid-cols-12 lg:gap-24">
                 <div className="lg:col-span-4">
                   {componentObjects[i].hydratedComponent}
@@ -224,7 +238,7 @@ export default function DynamicPage(props) {
           i = i + 3;
         } else {
           sections.push(
-            <section className="layout-container">
+            <section className="layout-container mt-12 mb-2">
               <div className="flex flex-col lg:grid lg:grid-cols-12 lg:gap-24">
                 <div className="lg:col-span-4">
                   {componentObjects[i].hydratedComponent}
@@ -268,8 +282,8 @@ export default function DynamicPage(props) {
           <TextButtonField
             href={getLocaleString(
               locale,
-              componentData.Link_FR,
-              componentData.Link_EN
+              `/${componentData.Link_FR}`,
+              `/${componentData.Link_EN}`
             )}
             buttonText={getLocaleString(
               locale,
@@ -286,7 +300,7 @@ export default function DynamicPage(props) {
                 componentData.Title_EN
               )}
             </h1>
-            <p>
+            <p style={{ whiteSpace: "pre-line" }}>
               {getLocaleString(
                 locale,
                 componentData.Text_FR,
@@ -344,8 +358,8 @@ export default function DynamicPage(props) {
       // as the english page will want the french path and vice versa
       langUrl={getLocaleString(
         locale,
-        pageData.PagePath_EN,
-        pageData.PagePath_FR
+        `/${pageData.PagePath_EN}`,
+        `/${pageData.PagePath_FR}`
       )}
     >
       <Head>
