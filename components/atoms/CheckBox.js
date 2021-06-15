@@ -1,9 +1,12 @@
 import PropTypes from "prop-types";
+import { useTranslation } from "next-i18next";
 
 /**
  * check box component for forms
  */
 export function CheckBox(props) {
+  const { t } = useTranslation("common");
+
   const ifControlledProps = !props.uncontrolled
     ? {
         checked: props.checked,
@@ -40,7 +43,13 @@ export function CheckBox(props) {
         htmlFor={props.id}
         onClick={() => props.onChange(props.checked, props.name, props.value)}
       >
-        {props.label}
+        {props.showRequiredLabel ? (
+          <b className="text-error-border-red">*</b>
+        ) : undefined}{" "}
+        {props.label}{" "}
+        {props.showRequiredLabel ? (
+          <b className="text-error-border-red">{t("required")}</b>
+        ) : undefined}
       </label>
     </div>
   );
@@ -49,6 +58,7 @@ export function CheckBox(props) {
 CheckBox.defaultProps = {
   checked: false,
   value: "true",
+  showRequiredLabel: false,
 };
 
 CheckBox.propTypes = {
@@ -90,6 +100,11 @@ CheckBox.propTypes = {
    * whether or not the field is required
    */
   required: PropTypes.bool,
+
+  /**
+   * show the "* ... (required)" in the label. in lists, this isn't necessary, but for an individual checkbox without a parent fieldset this is required
+   */
+  showRequiredLabel: PropTypes.bool,
 
   /**
    * callback to handle change in checked state, takes three arguments, the checked state, the name and the value
