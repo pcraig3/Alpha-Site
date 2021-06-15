@@ -17,6 +17,11 @@ export default function Confirmation(props) {
       <Head>
         <title>{t("thankYouTitle")}</title>
         <link rel="icon" href="/favicon.ico" />
+        <meta name="dcterms.title" content="Thank you Page"/>       
+        <meta name="dcterms.language" content={props.locale} />
+        <meta name="dcterms.creator" content=""/>
+        <meta name="dcterms.accessRights" content="2"/>
+        <meta name="dcterms.service" content=""/>
       </Head>
       <section className="layout-container mb-12">
         <h1
