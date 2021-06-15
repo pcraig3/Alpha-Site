@@ -4,6 +4,7 @@ import { Layout } from "../components/organisms/Layout";
 import { TextButtonField } from "../components/molecules/TextButtonField";
 import { Quote } from "../components/molecules/Quote";
 import { List } from "../components/molecules/List";
+import { ActionButton } from "../components/atoms/ActionButton";
 
 export default function DynamicPage(props) {
   const locale = props.locale;
@@ -335,6 +336,26 @@ export default function DynamicPage(props) {
         componentWithSize.size = componentData.Size;
 
         return componentWithSize;
+
+      case "page-elements.call-to-action":
+        componentWithSize.hydratedComponent = (
+          <ActionButton
+            id={createButtonIdString(componentData.Text_EN)}
+            secondary={componentData.Secondary}
+            tertiary={componentData.Tertiary}
+            disabled={componentData.Disabled}
+            text={getLocaleString(
+              locale,
+              componentData.Text_FR,
+              componentData.Text_EN
+            )}
+            href={getLocaleString(
+              locale,
+              `/${componentData.Link_FR}`,
+              `/${componentData.Link_EN}`
+            )}
+          />
+        );
 
       default:
         break;
