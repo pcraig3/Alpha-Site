@@ -16,11 +16,11 @@ export default function Splash(props) {
       <Head>
         <title>alpha.service.canada.ca</title>
         <link rel="icon" href="/favicon.ico" />
-        <meta name="dcterms.title" content="Splash Page"/>       
+        <meta name="dcterms.title" content="Splash Page" />
         <meta name="dcterms.language" content={props.locale} />
-        <meta name="dcterms.creator" content=""/>
-        <meta name="dcterms.accessRights" content="2"/>
-        <meta name="dcterms.service" content=""/>
+        <meta name="dcterms.creator" content="" />
+        <meta name="dcterms.accessRights" content="2" />
+        <meta name="dcterms.service" content="" />
       </Head>
       <div className="absolute inset-0 -mt-12 xl:mb-0 flex flex-col justify-center items-center">
         <div className="bg-footer-background-color h-auto min-w-300px w-300px xl:w-500px">

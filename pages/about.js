@@ -17,11 +17,11 @@ export default function About(props) {
       <Head>
         <title>{t("aboutTitle")}</title>
         <link rel="icon" href="/favicon.ico" />
-        <meta name="dcterms.title" content="About Page"/>       
+        <meta name="dcterms.title" content="About Page" />
         <meta name="dcterms.language" content={props.locale} />
-        <meta name="dcterms.creator" content=""/>
-        <meta name="dcterms.accessRights" content="2"/>
-        <meta name="dcterms.service" content=""/>
+        <meta name="dcterms.creator" content="" />
+        <meta name="dcterms.accessRights" content="2" />
+        <meta name="dcterms.service" content="" />
       </Head>
       <section className="layout-container relative mb-28">
         <div className="hidden xl:block">

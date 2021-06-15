@@ -22,11 +22,11 @@ export default function Home(props) {
       <Head>
         <title>{t("siteTitle")}</title>
         <link rel="icon" href="/favicon.ico" />
-        <meta name="dcterms.title" content="Home Page"/>       
+        <meta name="dcterms.title" content="Home Page" />
         <meta name="dcterms.language" content={props.locale} />
-        <meta name="dcterms.creator" content=""/>
-        <meta name="dcterms.accessRights" content="2"/>
-        <meta name="dcterms.service" content=""/>
+        <meta name="dcterms.creator" content="" />
+        <meta name="dcterms.accessRights" content="2" />
+        <meta name="dcterms.service" content="" />
       </Head>
 
       <section className="layout-container mb-2 mt-12">
