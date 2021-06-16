@@ -49,7 +49,8 @@ module.exports = {
     },
     extend: {
       backgroundImage: (theme) => ({
-        "banner-img": "url('../public/bg-banner.jpg')",
+        "splash-img": "url('../public/bg-banner.jpg')",
+        "banner-img": "url('../public/bg-banner-v2.jpg')",
         "footer-parliament-image": "url(../public/landscape.png)",
       }),
       colors: {
@@ -90,8 +91,10 @@ module.exports = {
         "40px": "40px",
         "44px": "44px",
         "68px": "68px",
+        "80px": "80px",
         "100px": "100px",
         "138px": "138px",
+        "160px": "160px",
         "300px": "300px",
         "400px": "400px",
         "500px": "500px",
