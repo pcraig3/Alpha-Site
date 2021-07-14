@@ -16,6 +16,11 @@ export default function Confirmation(props) {
       breadcrumbItems={[{ text: "Service Canada Labs", link: "/" }]}
     >
       <Head>
+        {process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL ? (
+          <script src={process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL} />
+        ) : (
+          ""
+        )}
         <title>{t("scLabsConfirmation")}</title>
         <link rel="icon" href="/favicon.ico" />
         <meta name="dcterms.title" content={t("scLabsConfirmation")} />
@@ -25,11 +30,12 @@ export default function Confirmation(props) {
         />
         <meta name="dcterms.creator" content={t("creator")} />
         <meta name="dcterms.accessRights" content="2" />
+        <meta name="dcterms.service" content="ESDC-EDSC_SCLabs-LaboratoireSC" />
       </Head>
       <section className="layout-container mb-12">
         <h1
           id="pageMainTitle"
-          className="mb-10 text-p xl:text-h1l font-bold w-max"
+          className="mb-10 text-p xl:text-h1l font-bold sm:w-max"
           tabIndex="-1"
         >
           {t("emailConfirmationTitle")}
@@ -48,14 +54,14 @@ export default function Confirmation(props) {
             </p>
             <p className="mb-4 text-sm lg:text-p leading-30px">
               {t("emailConfirmationP2")}
-              <TextButtonField
-                href="/experiments"
-                buttonText={t("experimentsBtnTxt")}
-                idButton="ExperimentsButton"
-                dataCyButton="ExperimentsButton"
-                className="flex mt-5"
-              />
             </p>
+            <TextButtonField
+              href="/experiments"
+              buttonText={t("experimentsBtnTxt")}
+              idButton="ExperimentsButton"
+              dataCyButton="ExperimentsButton"
+              className="flex mt-5"
+            />
           </div>
         </div>
       </section>
