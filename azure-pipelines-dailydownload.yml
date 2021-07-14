@@ -7,22 +7,25 @@ resources:
 - repo: self
 
 variables:
-  imageRepository: 'alphasite'
+  MONGO_URL: $(MONGO_URL)
+  MONGO_DB: $(MONGO_DB)
   ADO_BUILD: $(Build.BuildId)
   BUILD_DATE: $(Build.BuildNumber)
-  tag: 'ADO-$(ADO_BUILD)'
-  vmImageName: 'ubuntu-latest'
 
 stages:
-- stage: Test
-  displayName: Test
+- stage: Node.js
+  displayName: Install Node.js and run script
+
   jobs:
-  - job: HelloWorld
+  - job: install_node
+    steps:
+    - task: NodeTool@0
+      inputs:
+        versionSpec: '14.x'
+
+  - job: run_script
     steps:
     - task: Bash@3
       inputs:
         targetType: 'inline'
-        script: |
-          # Write your commands here
-      
-          echo 'Hello world'
+        script: 'node ./lib/generateCSV.js'
