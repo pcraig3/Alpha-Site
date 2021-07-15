@@ -27,12 +27,13 @@ stages:
       inputs:
         targetType: 'inline'
         script: |
-          npm ci
+          npm install json2csv mongodb
           node ./lib/users/generateCSV.js
 
   - job: copy_csv
     pool:
       vmImage: $(vmImageName)
+    dependsOn: run_script
     steps:
     - task: AzureFileCopy@4
       inputs:
@@ -41,3 +42,4 @@ stages:
         SourcePath: './users.csv'
         Destination: 'AzureBlob'
         ContainerName: 'alphasite'
+        resourceGroup: $(AZURE_STORAGE_RG)
