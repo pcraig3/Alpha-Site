@@ -27,17 +27,21 @@ stages:
         script: |
           npm install json2csv mongodb
           node ./scripts/generateCSV.js
+  - job:
 
-  - job: copy_csv
-    pool:
-      vmImage: $(vmImageName)
-    dependsOn: run_script
-    steps:
-    - task: AzureCLI@2
-      inputs:
-        azureSubscription: $(AZURE_SUBSCRIPTION)
-        scriptType: 'bash'
-        scriptLocation: 'inlineScript'
-        inlineScript: |
-          azcopy copy './users.csv' 'https://alphasitesadev.blob.core.windows.net/alphasite/users.csv' 
+  # - job: copy_csv
+  #   pool:
+  #     vmImage: $(vmImageName)
+  #   dependsOn: run_script
+  #   steps:
+    
+  #   - task: AzureCLI@2
+  #     inputs:
+  #       azureSubscription: $(AZURE_SUBSCRIPTION)
+  #       scriptType: 'bash'
+  #       scriptLocation: 'inlineScript'
+  #       inlineScript: |
+  #         azcopy login --serviceprinicple
+  #         azcopy copy './users.csv' 'https://alphasitesadev.blob.core.windows.net/alphasite/users.csv'
+    
         
