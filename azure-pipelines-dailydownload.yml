@@ -25,8 +25,9 @@ stages:
       inputs:
         targetType: 'inline'
         script: |
+          cd ./scripts
           npm install json2csv mongodb
-          node ./lib/users/generateCSV.js
+          node ./generateCSV.js
 
   - job: copy_csv
     pool:
