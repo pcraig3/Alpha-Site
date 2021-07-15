@@ -11,21 +11,31 @@ variables:
   MONGO_DB: $(MONGO_DB)
   ADO_BUILD: $(Build.BuildId)
   BUILD_DATE: $(Build.BuildNumber)
+  vmImageName: 'vs2017-win2016'
 
 stages:
-- stage: Nodejs
-  displayName: Install Node.js and run script
+- stage: GenerateCSV
+  displayName: Generate CSV and copy to blob storage
+
 
   jobs:
-  - job: install_node
-    steps:
-    - task: NodeTool@0
-      inputs:
-        versionSpec: '14.x'
-
   - job: run_script
+    pool:
+      vmImage: $(vmImageName)
     steps:
     - task: Bash@3
       inputs:
         targetType: 'inline'
         script: 'node ./lib/generateCSV.js'
+
+  - job: copy_csv
+    pool:
+      vmImage: $(vmImageName)
+    steps:
+    - task: AzureFileCopy@4
+      inputs:
+        azureSubscription: $(AZURE_SUBSCRIPTION)
+        storage: $(AZURE_STORAGE)
+        SourcePath: './users.csv'
+        Destination: 'AzureBlob'
+        ContainerName: 'alphasite'
