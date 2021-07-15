@@ -27,8 +27,7 @@ stages:
       inputs:
         targetType: 'inline'
         script: |
-          ls ./
-          node ./lib/generateCSV.js
+          node ./lib/users/generateCSV.js
 
   - job: copy_csv
     pool:
