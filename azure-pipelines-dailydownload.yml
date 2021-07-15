@@ -9,7 +9,7 @@ resources:
 variables:
   ADO_BUILD: $(Build.BuildId)
   BUILD_DATE: $(Build.BuildNumber)
-  vmImageName: 'vs2017-win2016'
+  vmImageName: 'ubuntu-latest'
 
 stages:
 - stage: GenerateCSV
@@ -25,7 +25,6 @@ stages:
       inputs:
         targetType: 'inline'
         script: |
-          cd ./scripts
           npm install json2csv mongodb
           node ./generateCSV.js
 
@@ -34,12 +33,11 @@ stages:
       vmImage: $(vmImageName)
     dependsOn: run_script
     steps:
-    - task: AzureFileCopy@4
+    - task: AzureCLI@2
       inputs:
         azureSubscription: $(AZURE_SUBSCRIPTION)
-        storage: $(AZURE_STORAGE_ACCOUNT)
-        SourcePath: './users.csv'
-        Destination: 'AzureBlob'
-        ContainerName: 'alphasite'
-        resourceGroup: $(AZURE_STORAGE_RG)
+        scriptType: 'bash'
+        scriptLocation: 'inlineScript'
+        inlineScript: |
+          azcopy copy './users.csv' 'https://alphasitesadev.blob.core.windows.net/alphasite/users.csv' 
         
