@@ -27,6 +27,7 @@ stages:
       inputs:
         targetType: 'inline'
         script: |
+          npm ci
           node ./lib/users/generateCSV.js
 
   - job: copy_csv
