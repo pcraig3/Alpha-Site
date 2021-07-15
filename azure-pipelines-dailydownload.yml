@@ -7,8 +7,6 @@ resources:
 - repo: self
 
 variables:
-  MONGO_URL: $(MONGO_URL)
-  MONGO_DB: $(MONGO_DB)
   ADO_BUILD: $(Build.BuildId)
   BUILD_DATE: $(Build.BuildNumber)
   vmImageName: 'vs2017-win2016'
@@ -38,8 +36,9 @@ stages:
     - task: AzureFileCopy@4
       inputs:
         azureSubscription: $(AZURE_SUBSCRIPTION)
-        storage: $(AZURE_STORAGE)
+        storage: $(AZURE_STORAGE_ACCOUNT)
         SourcePath: './users.csv'
         Destination: 'AzureBlob'
         ContainerName: 'alphasite'
         resourceGroup: $(AZURE_STORAGE_RG)
+        
