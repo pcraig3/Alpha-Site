@@ -27,7 +27,7 @@ stages:
         script: |
           npm install json2csv mongodb
           node ./scripts/generateCSV.js
-  - job:
+  # - job:
 
   # - job: copy_csv
   #   pool:
