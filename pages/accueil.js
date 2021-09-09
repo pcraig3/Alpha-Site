@@ -8,7 +8,7 @@ import { ActionButton } from "../components/atoms/ActionButton";
 import { HTMList } from "../components/atoms/HTMList";
 import { useEffect } from "react";
 
-export default function Home(props) {
+export default function accueil(props) {
   const { t } = useTranslation("common");
   const { asPath } = useRouter();
 

@@ -7,7 +7,7 @@ import { List } from "../components/molecules/List";
 import { CallToAction } from "../components/molecules/CallToAction";
 import { useEffect } from "react";
 
-export default function About(props) {
+export default function apropos(props) {
   const { t } = useTranslation("common");
   const { asPath } = useRouter();
 
