@@ -1,5 +1,6 @@
 /* eslint-disable no-undef */
 /// <reference types="Cypress" />
+
 const { recurse } = require("cypress-recurse");
 
 describe("signup and confirmation", () => {
@@ -29,17 +30,17 @@ describe("signup and confirmation", () => {
     cy.get('[data-cy="signup-submit"]').click();
 
     // retry fetching the email
-    recurse(
-      () => cy.task("getLastEmail"), // Cypress commands to retry
-      Cypress._.isObject, // keep retrying until the task returns an object
-      {
-        timeout: 60000, // retry up to 1 minute
-        delay: 5000, // wait 5 seconds between attempts
-      }
-    )
-      .its("html")
-      .then((html) => {
-        cy.document({ log: false }).invoke({ log: false }, "write", html);
-      });
+    // recurse(
+    //   () => cy.task("getLastEmail"), // Cypress commands to retry
+    //   Cypress._.isObject, // keep retrying until the task returns an object
+    //   {
+    //     timeout: 60000, // retry up to 1 minute
+    //     delay: 5000, // wait 5 seconds between attempts
+    //   }
+    // )
+    //   .its("html")
+    //   .then((html) => {
+    //     cy.document({ log: false }).invoke({ log: false }, "write", html);
+    //   });
   });
 });
