@@ -295,7 +295,7 @@ export default function DigitalCenter(props) {
               : t("becomeAParticipantDescription")
           }
           lang={props.locale}
-          href={t("signupRedirect")}
+          href={feedbackActive ? undefined : t("signupRedirect")}
           hrefText={
             feedbackActive ? t("bottomFeedbackButtonText") : t("signupBtn")
           }
