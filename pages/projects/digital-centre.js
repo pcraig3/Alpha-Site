@@ -32,7 +32,7 @@ ThumbnailWithCaption.propTypes = {
 
 export default function DigitalCenter(props) {
   const { t } = useTranslation(["common", "dc"]);
-  const [feedbackActive, setActive] = useState(true);
+  const [feedbackActive, setActive] = useState(false);
 
   useEffect(() => {
     if (process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL) {

@@ -3,7 +3,8 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import { Layout } from "../../../components/organisms/Layout";
 import { ActionButton } from "../../../components//atoms/ActionButton";
-import { useEffect } from "react";
+import { CallToAction } from "../../../components/molecules/CallToAction";
+import { useEffect, useState } from "react";
 
 //  On hold for now
 //  import { VirtualConcierge } from "../../../components/organisms/VirtualConcierge";
@@ -12,6 +13,7 @@ import { useEffect } from "react";
 export default function Home(props) {
   const { t } = useTranslation(["common", "vc"]);
   const language = props.locale === "en" ? "fr" : "en";
+  const [feedbackActive, setActive] = useState(false);
 
   useEffect(() => {
     if (process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL) {
@@ -111,12 +113,24 @@ export default function Home(props) {
         </section>
         {/* END Virtual Assistant Demo section end for working prototype */}
 
-        {/* <CallToAction
-          title={t("signupTitleCallToAction")}
-          html={t("becomeAParticipantDescription")}
-          href={"/signup"}
-          hrefText={t("signupBtn")}
-        /> */}
+        <CallToAction
+          title={
+            feedbackActive
+              ? t("bottomFeedbackTitle")
+              : t("signupTitleCallToAction")
+          }
+          html={
+            feedbackActive
+              ? t("bottomFeedbackDescription")
+              : t("becomeAParticipantDescription")
+          }
+          lang={props.locale}
+          href={feedbackActive ? undefined : t("signupRedirect")}
+          hrefText={
+            feedbackActive ? t("bottomFeedbackButtonText") : t("signupBtn")
+          }
+          feedbackActive={feedbackActive}
+        />
       </Layout>
       {process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL ? (
         <script type="text/javascript">_satellite.pageBottom()</script>
