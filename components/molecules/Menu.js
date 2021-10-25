@@ -41,8 +41,8 @@ export function Menu(props) {
         aria-controls="menuDropdown"
         data-testid="menuButton"
       >
-        <span className="inline-block align-middle icon-menu" />
-        <span className="inline-block align-middle pl-3 font-body text-p leading-none">
+        <span className="inline-block align-middle" />
+        <span className="inline-block align-middle pl-3 font-body text-p">
           {props.menuButtonTitle}
         </span>
       </button>
@@ -55,13 +55,13 @@ export function Menu(props) {
           return (
             <li
               key={key}
-              className={`py-3 lg:py-0 cursor-pointer text-custom-blue-projects-link `}
+              className={`py-3 lg:py-0 cursor-pointer text-custom-blue-projects-link`}
               role="menuitem"
               aria-current={exactURL ? "page" : null}
             >
               <Link href={item.link}>
                 <a
-                  className={`font-body text-base ${
+                  className={`font-body text-base${
                     includesURL
                       ? router.pathname !== "/signup/privacy"
                         ? "activePage"

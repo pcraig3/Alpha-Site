@@ -4,7 +4,7 @@ import { useTranslation } from "next-i18next";
 import { Layout } from "../../../components/organisms/Layout";
 import { ActionButton } from "../../../components//atoms/ActionButton";
 import { CallToAction } from "../../../components/molecules/CallToAction";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 //  On hold for now
 //  import { VirtualConcierge } from "../../../components/organisms/VirtualConcierge";
@@ -14,7 +14,8 @@ export default function Home(props) {
   const { t } = useTranslation(["common", "vc"]);
   const language = props.locale === "en" ? "fr" : "en";
   const [feedbackActive, setActive] = useState(true);
-  const [expandFeedback, setExpandFeedback] = useState(false);
+  const [showFeedback, setShowFeedback] = useState(false);
+  const toggle = useRef("Collapsed");
 
   useEffect(() => {
     if (process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL) {
@@ -22,6 +23,39 @@ export default function Home(props) {
       window.adobeDataLayer.push({ event: "pageLoad" });
     }
   }, []);
+
+  let toggleForm = async (e) => {
+    if (showFeedback) {
+      toggle.current = "Collapsed";
+    } else {
+      toggle.current = "Expanded";
+    }
+
+    srSpeak(toggle.current);
+    setShowFeedback(false);
+  };
+
+  const handleClickBottomFeedback = () => {
+    setShowFeedback(true);
+    window.scrollTo(0, 0);
+  };
+
+  function srSpeak(text, priority) {
+    var el = document.createElement("div");
+    var id = "speak-" + Date.now();
+    el.setAttribute("id", id);
+    el.setAttribute("aria-live", priority || "polite");
+    el.classList.add("sr-only");
+    document.body.appendChild(el);
+
+    window.setTimeout(function () {
+      document.getElementById(id).innerHTML = text;
+    }, 100);
+
+    window.setTimeout(function () {
+      document.body.removeChild(document.getElementById(id));
+    }, 1000);
+  }
 
   return (
     <>
@@ -33,6 +67,9 @@ export default function Home(props) {
           { text: t("menuLink1"), link: t("breadCrumbsHref2") },
         ]}
         feedbackActive={feedbackActive}
+        showFeedback={showFeedback}
+        clicked={() => setShowFeedback(true)}
+        toggleForm={toggleForm}
       >
         <Head>
           {process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL ? (
@@ -130,7 +167,7 @@ export default function Home(props) {
           href={feedbackActive ? "" : t("signupRedirect")}
           hrefText={feedbackActive ? t("bottomFeedbackBtn") : t("signupBtn")}
           feedbackActive={feedbackActive}
-          onClick={feedbackActive ? () => setExpandFeedback(true) : undefined}
+          clicked={handleClickBottomFeedback}
         />
       </Layout>
       {process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL ? (

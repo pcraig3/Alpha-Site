@@ -8,6 +8,7 @@ import Link from "next/link";
 import { useTranslation } from "next-i18next";
 import { DateModified } from "../atoms/DateModified";
 import { Breadcrumb } from "../atoms/Breadcrumb";
+import { FeedbackWidget } from "./FeedbackWidget";
 
 const setLanguage = (language) => {
   language === "fr"
@@ -26,12 +27,15 @@ export const Layout = ({
   langUrl,
   breadcrumbItems,
   feedbackActive,
+  showFeedback,
+  clicked,
+  toggleForm,
 }) => {
   const { t } = useTranslation("common");
   const language = locale === "en" ? "fr" : "en";
 
   return (
-    <div className="overflow-x-hidden">
+    <div className={`${showFeedback ? "bg-gray-400" : ""} overflow-x-hidden`}>
       <nav className="skip-main">
         <a
           id="skipToMainContent"
@@ -49,6 +53,7 @@ export const Layout = ({
         <PhaseBanner
           phase={t("phaseBannerTag")}
           feedbackActive={feedbackActive}
+          clicked={clicked}
         >
           {t("phaseBannerText")}
         </PhaseBanner>
@@ -104,7 +109,7 @@ export const Layout = ({
           </div>
         </div>
 
-        <div className="mb-2 border-t pb-2 mt-4">
+        <div className={"mb-2 pb-2 mt-4"}>
           <Menu
             menuButtonTitle={t("menuTitle")}
             signUpText={t("signupBtn")}
@@ -134,6 +139,7 @@ export const Layout = ({
           <Banner siteTitle={bannerTitle} headline={bannerText} />
         ) : null}
         <div>{children}</div>
+        <FeedbackWidget showFeedback={showFeedback} toggleForm={toggleForm} />
       </main>
 
       <footer>
