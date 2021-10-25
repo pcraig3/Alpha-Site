@@ -13,7 +13,8 @@ import { useEffect, useState } from "react";
 export default function Home(props) {
   const { t } = useTranslation(["common", "vc"]);
   const language = props.locale === "en" ? "fr" : "en";
-  const [feedbackActive, setActive] = useState(false);
+  const [feedbackActive, setActive] = useState(true);
+  const [expandFeedback, setExpandFeedback] = useState(false);
 
   useEffect(() => {
     if (process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL) {
@@ -31,6 +32,7 @@ export default function Home(props) {
           { text: t("siteTitle"), link: t("breadCrumbsHref1") },
           { text: t("menuLink1"), link: t("breadCrumbsHref2") },
         ]}
+        feedbackActive={feedbackActive}
       >
         <Head>
           {process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL ? (
@@ -125,11 +127,10 @@ export default function Home(props) {
               : t("becomeAParticipantDescription")
           }
           lang={props.locale}
-          href={feedbackActive ? undefined : t("signupRedirect")}
-          hrefText={
-            feedbackActive ? t("bottomFeedbackButtonText") : t("signupBtn")
-          }
+          href={feedbackActive ? "" : t("signupRedirect")}
+          hrefText={feedbackActive ? t("bottomFeedbackBtn") : t("signupBtn")}
           feedbackActive={feedbackActive}
+          onClick={feedbackActive ? () => setExpandFeedback(true) : undefined}
         />
       </Layout>
       {process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL ? (

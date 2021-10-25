@@ -263,7 +263,7 @@
   "feedbackRequired": "Feedback - This field is required",
   "bottomFeedbackTitle": "Give feedback to help improve this service",
   "bottomFeedbackDescription": "We are always trying to better meet the needs of our users. We welcome any feedback or opinions you may have on our site to improve our current service.",
-  "bottomFeedbackButtonText": "Give Feedback",
+  "bottomFeedbackBtn": "Give Feedback",
   "globalHeader": "Global header",
   "testSiteNotice": "Test site notice",
   "siteFooter": "Site footer",

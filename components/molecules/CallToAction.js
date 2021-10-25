@@ -35,12 +35,12 @@ export function CallToAction(props) {
                   } rounded text-custom-blue-projects-link bg-details-button-gray hover:bg-gray-300 border border-custom-blue-blue active:bg-custom-blue-dark active:border-2 active:border-white hover:border-2 hover:border-white`}
                   href={props.href}
                   text={props.hrefText}
-                  icon={
+                  svg={
                     props.feedbackActive ? (
                       <img className="px-2" src="/feedback-icon.svg" alt="" />
                     ) : undefined
                   }
-                  onClick={props.feedbackActive ? props.onClick : undefined}
+                  onClick={props.onCLick}
                 />
               </p>
               <p>

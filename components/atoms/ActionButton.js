@@ -93,7 +93,7 @@ export function ActionButton(props) {
       ) : undefined}
       <span className="flex">
         {props.text}
-        {props.icon}
+        {props.svg}
       </span>
       {props.children}
       {props.icon && props.iconEnd ? (
