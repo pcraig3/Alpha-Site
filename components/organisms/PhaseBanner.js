@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import PropTypes from "prop-types";
 import { useTranslation } from "next-i18next";
 
@@ -6,7 +6,13 @@ import { useTranslation } from "next-i18next";
  * Displays the PhaseBanner on the page
  */
 
-export const PhaseBanner = ({ phase, children, clicked, feedbackActive }) => {
+export const PhaseBanner = ({
+  phase,
+  children,
+  clicked,
+  feedbackActive,
+  currentState,
+}) => {
   const { t } = useTranslation("common");
 
   return (
@@ -37,7 +43,7 @@ export const PhaseBanner = ({ phase, children, clicked, feedbackActive }) => {
             >
               <strong className="lg:mt-0 ml-2 underline">
                 {t("giveFeedback")}
-                {/* <span className="sr-only"> {toggle.current}</span> */}
+                <span className="sr-only"> {currentState}</span>
               </strong>
               <img
                 className="px-2 flex items-center"

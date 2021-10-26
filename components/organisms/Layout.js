@@ -30,12 +30,13 @@ export const Layout = ({
   showFeedback,
   clicked,
   toggleForm,
+  currentState,
 }) => {
   const { t } = useTranslation("common");
   const language = locale === "en" ? "fr" : "en";
 
   return (
-    <div className={`${showFeedback ? "bg-gray-400" : ""} overflow-x-hidden`}>
+    <div className="overflow-x-hidden h-full">
       <nav className="skip-main">
         <a
           id="skipToMainContent"
@@ -54,6 +55,7 @@ export const Layout = ({
           phase={t("phaseBannerTag")}
           feedbackActive={feedbackActive}
           clicked={clicked}
+          currentState={currentState}
         >
           {t("phaseBannerText")}
         </PhaseBanner>
@@ -135,11 +137,11 @@ export const Layout = ({
       </header>
 
       <main>
+        <FeedbackWidget showFeedback={showFeedback} toggleForm={toggleForm} />
         {bannerText && bannerTitle ? (
           <Banner siteTitle={bannerTitle} headline={bannerText} />
         ) : null}
         <div>{children}</div>
-        <FeedbackWidget showFeedback={showFeedback} toggleForm={toggleForm} />
       </main>
 
       <footer>

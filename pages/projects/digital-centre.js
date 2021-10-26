@@ -32,7 +32,7 @@ ThumbnailWithCaption.propTypes = {
 
 export default function DigitalCenter(props) {
   const { t } = useTranslation(["common", "dc"]);
-  const [feedbackActive, setActive] = useState(true);
+  const [feedbackActive, setActive] = useState(false);
   const [showFeedback, setShowFeedback] = useState(false);
   const toggle = useRef("Collapsed");
 
@@ -90,6 +90,7 @@ export default function DigitalCenter(props) {
         showFeedback={showFeedback}
         clicked={() => setShowFeedback(true)}
         toggleForm={toggleForm}
+        currentState={toggle.current}
       >
         <Head>
           {process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL ? (

@@ -13,7 +13,7 @@ import { useEffect, useState, useRef } from "react";
 export default function Home(props) {
   const { t } = useTranslation(["common", "vc"]);
   const language = props.locale === "en" ? "fr" : "en";
-  const [feedbackActive, setActive] = useState(true);
+  const [feedbackActive, setActive] = useState(false);
   const [showFeedback, setShowFeedback] = useState(false);
   const toggle = useRef("Collapsed");
 
